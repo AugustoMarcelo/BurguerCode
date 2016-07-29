@@ -37,7 +37,7 @@
 
     <body>
         <h1 class="text-logo">
-            <span class="glyphicon glyphicon-cutlery"></span> Burguer Code <span class="glyphicon glyphicon-cutlery"></span>            
+            <span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span>            
         </h1>
         <div class="container admin">
             <div class="row">
@@ -52,7 +52,7 @@
                             <label>Description:</label><?php echo '  ' . $item['description']; ?> 
                         </div>
                         <div class="form-group">
-                            <label>Price:</label><?php echo '  ' . number_format((float) $item['price'], 2, ',', ''); ?> 
+                            <label>Price:</label><?php echo '  ' . number_format((float) $item['price'], 2, ',', '') . ' €'; ?> 
                         </div>
                         <div class="form-group">
                             <label>Category:</label><?php echo '  ' . $item['category']; ?> 
@@ -63,13 +63,13 @@
                     </form>
                     <br>
                     <div class="form-actions">
-                        <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+                        <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
                     </div>                    
                 </div> 
                 <div class="col-sm-6 site">
                     <div class="thumbnail">
                         <img src="<?php echo '../images/' . $item['image']; ?>" alt="...">
-                        <div class="price"><?php echo number_format((float) $item['price'], 2, ',', ''); ?></div> <!-- Alt+0128-->
+                        <div class="price"><?php echo number_format((float) $item['price'], 2, ',', '') . ' €'; ?></div> <!-- Alt+0128-->
                         <div class="caption">
                             <h4><?php echo $item['name']; ?></h4>
                             <p><?php echo $item['description']; ?> </p>
