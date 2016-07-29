@@ -94,3 +94,11 @@ body {
     padding: 50px;
     border-radius: 10px;
 }
+
+.help-inline {
+    color: red;
+}
+
+.table>thead:first-child>tr:first-child>th:nth-child(5) {
+    text-align: center;
+}
