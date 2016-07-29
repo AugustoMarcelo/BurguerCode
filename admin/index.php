@@ -13,20 +13,20 @@
 
     <body>
         <h1 class="text-logo">
-            <span class="glyphicon glyphicon-cutlery"></span> Burguer Code <span class="glyphicon glyphicon-cutlery"></span>            
+            <span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span>            
         </h1>
         <div class="container admin">
             <div class="row">
                 <h1><strong>Lista de Itens   </strong>                
-                <a href="insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Adicionar</a></h1>
+                <a href="insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Add</a></h1>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Preço</th>
-                            <th>Categoria</th>
-                            <th>Ações</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,11 +46,11 @@
                                 echo '<td>' . number_format((float) $item['price'], 2, ',', '') . '</td>';
                                 echo '<td>' . $item['category'] . '</td>';
                                 echo '<td width=300>';
-                                echo '<a class="btn btn-default" href="view.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-eye-open"></span> Ver</a>';
+                                echo '<a class="btn btn-default" href="view.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-eye-open"></span> View</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-pencil"></span> Atualizar</a>';
+                                echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-pencil"></span> Update</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-remove"></span> Deletar</a>';
+                                echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-remove"></span> Delete</a>';
                                 echo '</td>';
                                 echo '</tr>';
                             }
