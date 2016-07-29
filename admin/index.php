@@ -30,17 +30,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Item 1</td>
-                            <td>Descrição 1</td>
-                            <td>Preço 1</td>
-                            <td>Categoria 1</td>
-                            <td width=300>
-                                <a class="btn btn-default" href="view.php"><span class="glyphicon glyphicon-eye-open"></span> Ver</a>
-                                <a class="btn btn-primary" href="update.php"><span class="glyphicon glyphicon-pencil"></span> Atualizar</a>
-                                <a class="btn btn-danger" href="delete.php"><span class="glyphicon glyphicon-remove"></span> Deletar</a>
-                            </td>
-                        </tr>
+                        <?php
+                            require('database.php');
+                            
+                            $db = Database::connect();
+                            $statement = $db->query('SELECT i.id, i.name, i.description, i.price, c.name AS category 
+                                                     FROM items i LEFT JOIN categories c 
+                                                     ON i.category = c.id 
+                                                     ORDER BY i.id DESC');
+
+                            while ($item = $statement->fetch()) {
+                                echo '<tr>';
+                                echo '<td>' . $item['name'] . '</td>';
+                                echo '<td>' . $item['description'] . '</td>';
+                                echo '<td>' . number_format((float) $item['price'], 2, ',', '') . '</td>';
+                                echo '<td>' . $item['category'] . '</td>';
+                                echo '<td width=300>';
+                                echo '<a class="btn btn-default" href="view.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-eye-open"></span> Ver</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-pencil"></span> Atualizar</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-remove"></span> Deletar</a>';
+                                echo '</td>';
+                                echo '</tr>';
+                            }
+                            Database::disconnect();
+                        ?>                        
                     </tbody>
                 </table>
             </div>
